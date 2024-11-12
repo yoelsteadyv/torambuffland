@@ -47,7 +47,7 @@ class AuthController extends Controller
     }
 
     return back()->withErrors([
-      'email' => 'Email atau password salah.',
+      'email' => 'Email atau Password salah.',
     ]);
   }
 
@@ -58,12 +58,24 @@ class AuthController extends Controller
       'name' => 'required|string|max:255',
       'email' => 'required|string|email|unique:users',
       'password' => 'required|string|min:8|confirmed',
+      'codeLand' => 'required|string|max:255',
+      'levelId' => 'required|integer',
+      'buffId' => 'required|integer',
+      'secondLevelId' => 'nullable|integer',
+      'secondBuffId' => 'nullable|integer',
+    ], [
+      'password.confirmed' => 'Password dan konfirmasi password harus sama.',
     ]);
 
     User::create([
       'name' => $request->name,
       'email' => $request->email,
       'password' => Hash::make($request->password),
+      'codeLand' => $request->codeLand,
+      'levelId' => $request->levelId,
+      'buffId' => $request->buffId,
+      'secondLevelId' => $request->secondLevelId,
+      'secondBuffId' => $request->secondBuffId,
     ]);
 
     return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
