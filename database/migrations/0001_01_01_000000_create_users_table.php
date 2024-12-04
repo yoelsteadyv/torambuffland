@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('codeLand')->nullable();
+            $table->integer('levelId')->default(1);
+            $table->integer('buffId')->default(0);
+            $table->integer('secondLevelId')->nullable(); // Menambahkan kolom secondLevel
+            $table->integer('secondBuffId')->nullable(); // Menambahkan kolom secondBuff
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
