@@ -14,7 +14,7 @@
     "env": {
         "APP_ENV": "local",
         "APP_DEBUG": "true",
-        "APP_URL": "https://https://example-app-ebon.vercel.app",
+        "APP_URL": "https://https://torambuffland.vercel.app",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
